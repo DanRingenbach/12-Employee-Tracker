@@ -26,7 +26,7 @@ connection.connect(function (err) {
         console.error('error connecting: ' + err.stack);
         return;
     }
-    console.log('connected as id ' + connection.threadId);
+    
     inquirerPrompt();
 });
 
@@ -155,8 +155,7 @@ function addRole() {
             }
         ])
             .then((answers) => {
-                console.log(answers)
-                console.log(deptChoices)
+                
                 const roleQuery = `INSERT INTO role (title, salary, department_id) VALUES ('${answers.role}',${answers.salary},${answers.department})`
                 connection.query(roleQuery, (err) => {
                     if (err) throw err;
@@ -191,8 +190,7 @@ function addEmployee() {
             }
         ))
         managerChoices.push({ name: 'none', value: null })
-        console.log(managerChoices);
-        console.log(roleChoices)
+        
 
         inquirer.prompt([
             {
